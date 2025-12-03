@@ -1,0 +1,125 @@
+import { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import { useAuth } from "../context/AuthContext.jsx";
+import axios from "../api/axiosClient";
+
+const RegisterPage = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+    institution: "",
+    program: "",
+    year: "",
+  });
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  
+  const { login } = useAuth();
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setError("");
+
+    try {
+      const response = await axios.post("/auth/register", formData);
+      login(response.data.token, response.data);
+      navigate("/dashboard");
+    } catch (err) {
+      setError(err.response?.data?.message || "Failed to register");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="auth-page">
+      <div className="auth-container">
+        <h2>Create Account</h2>
+        {error && <div className="alert alert-error">{error}</div>}
+        <form onSubmit={handleSubmit} className="auth-form">
+          <div className="form-group">
+            <label htmlFor="name">Full Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="institution">Institution</label>
+            <input
+              type="text"
+              id="institution"
+              name="institution"
+              value={formData.institution}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="program">Program</label>
+            <input
+              type="text"
+              id="program"
+              name="program"
+              value={formData.program}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="year">Year</label>
+            <input
+              type="text"
+              id="year"
+              name="year"
+              value={formData.year}
+              onChange={handleChange}
+            />
+          </div>
+          <button type="submit" className="btn btn-primary" disabled={loading}>
+            {loading ? "Creating account..." : "Register"}
+          </button>
+        </form>
+        <p className="auth-footer">
+          Already have an account? <Link to="/login">Sign in here</Link>
+        </p>
+      </div>
+    </div>
+  );
+};
+
+export default RegisterPage;
