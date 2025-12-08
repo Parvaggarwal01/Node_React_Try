@@ -15,52 +15,72 @@ const Navbar = () => {
         <Link to="/" className="nav-logo">
           MindWell
         </Link>
-        
+
         <ul className="nav-menu">
           {user ? (
             <>
               {user.role === "student" ? (
                 <>
                   <li>
-                    <Link 
-                      to="/dashboard" 
-                      className={isActive("/dashboard") ? "nav-link active" : "nav-link"}
+                    <Link
+                      to="/dashboard"
+                      className={
+                        isActive("/dashboard") ? "nav-link active" : "nav-link"
+                      }
                     >
                       Dashboard
                     </Link>
                   </li>
                   <li>
-                    <Link 
-                      to="/mood" 
-                      className={isActive("/mood") ? "nav-link active" : "nav-link"}
+                    <Link
+                      to="/mood"
+                      className={
+                        isActive("/mood") ? "nav-link active" : "nav-link"
+                      }
                     >
                       Mood Tracker
                     </Link>
                   </li>
                   <li>
-                    <Link 
-                      to="/resources" 
-                      className={isActive("/resources") ? "nav-link active" : "nav-link"}
+                    <Link
+                      to="/resources"
+                      className={
+                        isActive("/resources") ? "nav-link active" : "nav-link"
+                      }
                     >
                       Resources
                     </Link>
                   </li>
                   <li>
-                    <Link 
-                      to="/support" 
-                      className={isActive("/support") ? "nav-link active" : "nav-link"}
+                    <Link
+                      to="/support"
+                      className={
+                        isActive("/support") ? "nav-link active" : "nav-link"
+                      }
                     >
                       Get Support
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/ai-chat"
+                      className={
+                        isActive("/ai-chat") ? "nav-link active" : "nav-link"
+                      }
+                    >
+                      AI Chat
                     </Link>
                   </li>
                 </>
               ) : (
                 <li>
-                  <Link 
-                    to="/admin" 
-                    className={isActive("/admin") ? "nav-link active" : "nav-link"}
+                  <Link
+                    to="/admin"
+                    className={
+                      isActive("/admin") ? "nav-link active" : "nav-link"
+                    }
                   >
-                    Admin Dashboard
+                    Counselor Dashboard
                   </Link>
                 </li>
               )}
@@ -73,17 +93,21 @@ const Navbar = () => {
           ) : (
             <>
               <li>
-                <Link 
-                  to="/login" 
-                  className={isActive("/login") ? "nav-link active" : "nav-link"}
+                <Link
+                  to="/login"
+                  className={
+                    isActive("/login") ? "nav-link active" : "nav-link"
+                  }
                 >
                   Login
                 </Link>
               </li>
               <li>
-                <Link 
-                  to="/register" 
-                  className={isActive("/register") ? "nav-link active" : "nav-link"}
+                <Link
+                  to="/register"
+                  className={
+                    isActive("/register") ? "nav-link active" : "nav-link"
+                  }
                 >
                   Register
                 </Link>

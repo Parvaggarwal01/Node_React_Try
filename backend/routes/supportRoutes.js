@@ -20,16 +20,17 @@ router.post("/", protect, async (req, res) => {
 // Student: Get own support requests
 router.get("/my", protect, async (req, res) => {
   try {
-    const requests = await SupportRequest.find({ student: req.user._id })
-      .sort({ createdAt: -1 });
+    const requests = await SupportRequest.find({ student: req.user._id }).sort({
+      createdAt: -1,
+    });
     res.json(requests);
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
 });
 
-// Counselor/Admin: Get all support requests
-router.get("/", protect, requireRole(["counselor", "admin"]), async (req, res) => {
+// Counselor: Get all support requests
+router.get("/", protect, requireRole(["counselor"]), async (req, res) => {
   try {
     const { status } = req.query;
     const filter = status ? { status } : {};
@@ -42,8 +43,8 @@ router.get("/", protect, requireRole(["counselor", "admin"]), async (req, res) =
   }
 });
 
-// Counselor/Admin: Update support request
-router.put("/:id", protect, requireRole(["counselor", "admin"]), async (req, res) => {
+// Counselor: Update support request
+router.put("/:id", protect, requireRole(["counselor"]), async (req, res) => {
   try {
     const { status, counselorNote } = req.body;
     const supportRequest = await SupportRequest.findByIdAndUpdate(
@@ -51,7 +52,7 @@ router.put("/:id", protect, requireRole(["counselor", "admin"]), async (req, res
       { status, counselorNote },
       { new: true }
     ).populate("student", "name email");
-    
+
     if (!supportRequest) {
       return res.status(404).json({ message: "Support request not found" });
     }

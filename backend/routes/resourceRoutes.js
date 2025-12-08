@@ -9,19 +9,19 @@ router.get("/", async (req, res) => {
   try {
     const { q, category } = req.query;
     let filter = {};
-    
+
     if (q) {
       filter.$or = [
         { title: { $regex: q, $options: "i" } },
         { description: { $regex: q, $options: "i" } },
-        { tags: { $in: [new RegExp(q, "i")] } }
+        { tags: { $in: [new RegExp(q, "i")] } },
       ];
     }
-    
+
     if (category) {
       filter.category = category;
     }
-    
+
     const resources = await Resource.find(filter)
       .sort({ createdAt: -1 })
       .populate("createdBy", "name");
@@ -31,8 +31,8 @@ router.get("/", async (req, res) => {
   }
 });
 
-// Admin: create resource
-router.post("/", protect, requireRole(["counselor", "admin"]), async (req, res) => {
+// Counselor: create resource
+router.post("/", protect, requireRole(["counselor"]), async (req, res) => {
   try {
     const resource = await Resource.create({
       ...req.body,
@@ -44,14 +44,12 @@ router.post("/", protect, requireRole(["counselor", "admin"]), async (req, res) 
   }
 });
 
-// Admin: update resource
-router.put("/:id", protect, requireRole(["counselor", "admin"]), async (req, res) => {
+// Counselor: update resource
+router.put("/:id", protect, requireRole(["counselor"]), async (req, res) => {
   try {
-    const resource = await Resource.findByIdAndUpdate(
-      req.params.id,
-      req.body,
-      { new: true }
-    );
+    const resource = await Resource.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+    });
     if (!resource) {
       return res.status(404).json({ message: "Resource not found" });
     }
@@ -61,8 +59,8 @@ router.put("/:id", protect, requireRole(["counselor", "admin"]), async (req, res
   }
 });
 
-// Admin: delete resource
-router.delete("/:id", protect, requireRole(["counselor", "admin"]), async (req, res) => {
+// Counselor: delete resource
+router.delete("/:id", protect, requireRole(["counselor"]), async (req, res) => {
   try {
     const resource = await Resource.findByIdAndDelete(req.params.id);
     if (!resource) {

@@ -8,7 +8,8 @@ import DashboardPage from "./pages/DashboardPage";
 import MoodPage from "./pages/MoodPage";
 import ResourcesPage from "./pages/ResourcesPage";
 import SupportPage from "./pages/SupportPage";
-import AdminDashboardPage from "./pages/AdminDashboardPage";
+import CounselorDashboardPage from "./pages/CounselorDashboardPage";
+import AIChatPage from "./pages/AIChatPage";
 
 import Navbar from "./components/Navbar";
 import CrisisBanner from "./components/CrisisBanner";
@@ -33,7 +34,8 @@ function App() {
               <Route path="/mood" element={<MoodPage />} />
               <Route path="/resources" element={<ResourcesPage />} />
               <Route path="/support" element={<SupportPage />} />
-              <Route path="/admin" element={<AdminDashboardPage />} />
+              <Route path="/ai-chat" element={<AIChatPage />} />
+              <Route path="/admin" element={<CounselorDashboardPage />} />
             </Routes>
           </main>
         </div>

@@ -3,7 +3,7 @@ import { useAuth } from "../context/AuthContext.jsx";
 import axios from "../api/axiosClient";
 import ResourceForm from "../components/ResourceForm";
 
-const AdminDashboardPage = () => {
+const CounselorDashboardPage = () => {
   const { user } = useAuth();
   const [requests, setRequests] = useState([]);
   const [resources, setResources] = useState([]);
@@ -244,4 +244,4 @@ const AdminDashboardPage = () => {
   );
 };
 
-export default AdminDashboardPage;
+export default CounselorDashboardPage;
