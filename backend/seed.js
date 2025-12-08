@@ -24,21 +24,8 @@ const seedData = async () => {
     await User.deleteMany();
     await Resource.deleteMany();
 
-    // Create admin user
-    const salt = await bcrypt.genSalt(10);
-    const adminPassword = await bcrypt.hash("admin123", salt);
-
-    const adminUser = await User.create({
-      name: "Admin User",
-      email: "admin@example.com",
-      passwordHash: adminPassword,
-      role: "admin",
-      institution: "University Admin",
-    });
-
-    console.log("Admin user created:", adminUser.email);
-
     // Create counselor user
+    const salt = await bcrypt.genSalt(10);
     const counselorPassword = await bcrypt.hash("counselor123", salt);
 
     const counselorUser = await User.create({
@@ -71,23 +58,26 @@ const seedData = async () => {
       {
         title: "Managing Exam Stress",
         category: "Stress",
-        description: "Learn effective techniques to manage stress during exam periods.",
+        description:
+          "Learn effective techniques to manage stress during exam periods.",
         link: "https://example.com/exam-stress",
         tags: ["exams", "stress", "academic"],
-        createdBy: adminUser._id,
+        createdBy: counselorUser._id,
       },
       {
         title: "Improving Sleep Hygiene",
         category: "Sleep",
-        description: "Tips for establishing healthy sleep patterns and improving sleep quality.",
+        description:
+          "Tips for establishing healthy sleep patterns and improving sleep quality.",
         link: "https://example.com/sleep-hygiene",
         tags: ["sleep", "health", "wellness"],
-        createdBy: adminUser._id,
+        createdBy: counselorUser._id,
       },
       {
         title: "Time Management Strategies",
         category: "Time Management",
-        description: "Effective time management techniques for balancing academics and personal life.",
+        description:
+          "Effective time management techniques for balancing academics and personal life.",
         link: "https://example.com/time-management",
         tags: ["productivity", "time", "organization"],
         createdBy: counselorUser._id,

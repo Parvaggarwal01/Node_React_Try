@@ -7,6 +7,7 @@ import authRoutes from "./routes/authRoutes.js";
 import moodRoutes from "./routes/moodRoutes.js";
 import resourceRoutes from "./routes/resourceRoutes.js";
 import supportRoutes from "./routes/supportRoutes.js";
+import aiChatRoutes from "./routes/aiChatRoutes.js";
 
 dotenv.config();
 const app = express();
@@ -25,11 +26,12 @@ app.use("/api/auth", authRoutes);
 app.use("/api/mood", moodRoutes);
 app.use("/api/resources", resourceRoutes);
 app.use("/api/support", supportRoutes);
+app.use("/api/ai-chat", aiChatRoutes);
 
 // Serve static assets in production
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("../frontend/dist"));
-  
+
   app.get("*", (req, res) => {
     res.sendFile(path.resolve("../frontend/dist/index.html"));
   });

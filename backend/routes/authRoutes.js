@@ -2,6 +2,7 @@ import express from "express";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import User from "../models/User.js";
+import { protect } from "../middleware/authMiddleware.js";
 
 const router = express.Router();
 
@@ -28,7 +29,7 @@ router.post("/register", async (req, res) => {
       institution,
       program,
       year,
-      role: "student"
+      role: "student",
     });
 
     // Generate JWT
@@ -89,9 +90,9 @@ router.post("/login", async (req, res) => {
 });
 
 // Get user profile
-router.get("/me", async (req, res) => {
+router.get("/me", protect, async (req, res) => {
   try {
-    const user = await User.findById(req.user.id).select("-passwordHash");
+    const user = await User.findById(req.user._id).select("-passwordHash");
     res.json(user);
   } catch (err) {
     res.status(500).json({ message: err.message });
