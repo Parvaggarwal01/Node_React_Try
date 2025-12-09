@@ -4,7 +4,7 @@ import { protect, requireRole } from "../middleware/authMiddleware.js";
 
 const router = express.Router();
 
-// Student: Create support request
+
 router.post("/", protect, async (req, res) => {
   try {
     const supportRequest = await SupportRequest.create({
@@ -17,7 +17,7 @@ router.post("/", protect, async (req, res) => {
   }
 });
 
-// Student: Get own support requests
+
 router.get("/my", protect, async (req, res) => {
   try {
     const requests = await SupportRequest.find({ student: req.user._id }).sort({
@@ -29,7 +29,7 @@ router.get("/my", protect, async (req, res) => {
   }
 });
 
-// Counselor: Get all support requests
+
 router.get("/", protect, requireRole(["counselor"]), async (req, res) => {
   try {
     const { status } = req.query;
@@ -43,7 +43,7 @@ router.get("/", protect, requireRole(["counselor"]), async (req, res) => {
   }
 });
 
-// Counselor: Update support request
+
 router.put("/:id", protect, requireRole(["counselor"]), async (req, res) => {
   try {
     const { status, counselorNote } = req.body;

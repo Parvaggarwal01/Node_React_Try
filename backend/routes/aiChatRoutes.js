@@ -4,7 +4,7 @@ import { protect } from "../middleware/authMiddleware.js";
 
 const router = express.Router();
 
-// System prompt (kept the same)
+
 const SYSTEM_PROMPT = `You are a compassionate mental health support AI assistant for students in higher education. Your role is to provide:
 
 1. Emotional support and empathetic listening
@@ -39,16 +39,16 @@ router.post("/", protect, async (req, res) => {
       });
     }
 
-    // Initialize Gemini AI
+    
     const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
-    // *** FIX: Switched to gemini-1.5-flash which has a stable free tier ***
+    
     const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
-    // Build conversation context
+    
     let conversationContext = SYSTEM_PROMPT + "\n\n";
 
-    // Add conversation history
+    
     const recentHistory = conversationHistory.slice(-10);
     recentHistory.forEach((msg) => {
       conversationContext += `${msg.role === "user" ? "User" : "Assistant"}: ${
@@ -58,7 +58,7 @@ router.post("/", protect, async (req, res) => {
 
     conversationContext += `User: ${message}\nAssistant:`;
 
-    // Generate response
+    
     const result = await model.generateContent(conversationContext);
     const response = await result.response;
     const aiReply = response.text();
@@ -70,7 +70,7 @@ router.post("/", protect, async (req, res) => {
   } catch (error) {
     console.error("AI Chat Error Details:", error);
 
-    // Specific handling for Quota/Rate Limit errors
+    
     if (error.status === 429) {
       return res.status(429).json({
         message: "The AI is currently busy. Please try again in a minute.",

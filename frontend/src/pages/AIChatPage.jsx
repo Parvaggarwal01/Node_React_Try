@@ -10,7 +10,7 @@ const AIChatPage = () => {
   const [error, setError] = useState("");
   const messagesEndRef = useRef(null);
 
-  // Scroll to bottom when new messages arrive
+  
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
@@ -19,13 +19,13 @@ const AIChatPage = () => {
     scrollToBottom();
   }, [messages]);
 
-  // Load conversation from localStorage
+  
   useEffect(() => {
     const savedMessages = localStorage.getItem("aiChatMessages");
     if (savedMessages) {
       setMessages(JSON.parse(savedMessages));
     } else {
-      // Welcome message
+      
       setMessages([
         {
           role: "assistant",
@@ -37,7 +37,7 @@ const AIChatPage = () => {
     }
   }, []);
 
-  // Save messages to localStorage whenever they change
+  
   useEffect(() => {
     if (messages.length > 0) {
       localStorage.setItem("aiChatMessages", JSON.stringify(messages));
@@ -55,20 +55,20 @@ const AIChatPage = () => {
       timestamp: new Date().toISOString(),
     };
 
-    // Add user message to chat
+    
     setMessages((prev) => [...prev, userMessage]);
     setInputMessage("");
     setIsLoading(true);
     setError("");
 
     try {
-      // Send message to backend with conversation history
+      
       const response = await axios.post("/ai-chat", {
         message: userMessage.content,
         conversationHistory: messages,
       });
 
-      // Add AI response to chat
+      
       const aiMessage = {
         role: "assistant",
         content: response.data.reply,
@@ -83,9 +83,9 @@ const AIChatPage = () => {
           "Failed to get response. Please try again."
       );
 
-      // Remove user message if request failed
+      
       setMessages((prev) => prev.slice(0, -1));
-      setInputMessage(userMessage.content); // Restore the message
+      setInputMessage(userMessage.content); 
     } finally {
       setIsLoading(false);
     }

@@ -10,7 +10,7 @@ const AchievementBadges = ({ entries }) => {
       (a, b) => new Date(a.date) - new Date(b.date)
     );
 
-    // Calculate current streak
+    
     const calculateStreak = () => {
       let streak = 0;
       const today = new Date();
@@ -39,7 +39,7 @@ const AchievementBadges = ({ entries }) => {
       (e) => e.note && e.note.trim().length > 0
     ).length;
 
-    // Badge definitions
+    
     const allBadges = [
       {
         id: "first-step",

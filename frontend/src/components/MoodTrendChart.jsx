@@ -22,7 +22,7 @@ const MoodTrendChart = ({ entries }) => {
     );
   }
 
-  // Prepare data for the last 30 days
+  
   const getLast30DaysData = () => {
     const data = [];
     const today = startOfDay(new Date());
@@ -31,13 +31,13 @@ const MoodTrendChart = ({ entries }) => {
       const date = subDays(today, i);
       const dateStr = format(date, "yyyy-MM-dd");
 
-      // Find mood entries for this day
+      
       const dayEntries = entries.filter((entry) => {
         const entryDate = format(new Date(entry.date), "yyyy-MM-dd");
         return entryDate === dateStr;
       });
 
-      // Calculate average mood for the day
+      
       const avgMood =
         dayEntries.length > 0
           ? dayEntries.reduce((sum, entry) => sum + entry.mood, 0) /

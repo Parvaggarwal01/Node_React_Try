@@ -30,7 +30,7 @@ const LoginPage = () => {
       const response = await axios.post("/auth/login", formData);
       login(response.data.token, response.data);
       
-      // Redirect based on role
+      
       if (response.data.role === "student") {
         navigate("/dashboard");
       } else {
