@@ -7,7 +7,7 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // On first load, try to fetch /auth/me (if token exists)
+  
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (!token) {

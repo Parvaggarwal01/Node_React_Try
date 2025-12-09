@@ -1,10 +1,8 @@
-/* ============================================
-   MODERN MENTAL HEALTH PLATFORM - DESIGN SYSTEM
-   ============================================ */
 
-/* Color System with Psychological Color Theory */
+
+
 :root {
-  /* Primary Palette - Calming Blues */
+  
   --primary-50: #e3f2fd;
   --primary-100: #bbdefb;
   --primary-200: #90caf9;
@@ -16,7 +14,7 @@
   --primary-800: #1565c0;
   --primary-900: #0d47a1;
 
-  /* Secondary Palette - Nurturing Purples */
+  
   --secondary-50: #f3e5f5;
   --secondary-100: #e1bee7;
   --secondary-200: #ce93d8;
@@ -28,7 +26,7 @@
   --secondary-800: #6a1b9a;
   --secondary-900: #4a148c;
 
-  /* Accent - Uplifting Teal */
+  
   --accent-50: #e0f7fa;
   --accent-100: #b2ebf2;
   --accent-200: #80deea;
@@ -40,7 +38,7 @@
   --accent-800: #00838f;
   --accent-900: #006064;
 
-  /* Semantic Colors */
+  
   --success-light: #c8e6c9;
   --success: #4caf50;
   --success-dark: #2e7d32;
@@ -57,7 +55,7 @@
   --info: #03a9f4;
   --info-dark: #01579b;
 
-  /* Neutral Palette */
+  
   --gray-50: #fafafa;
   --gray-100: #f5f5f5;
   --gray-200: #eeeeee;
@@ -69,13 +67,13 @@
   --gray-800: #424242;
   --gray-900: #212121;
 
-  /* Text Colors */
+  
   --text-primary: #1a1a2e;
   --text-secondary: #4a4a68;
   --text-tertiary: #6c757d;
   --text-inverse: #ffffff;
 
-  /* Background Colors */
+  
   --bg-primary: #ffffff;
   --bg-secondary: #f8f9fa;
   --bg-tertiary: #e9ecef;
@@ -85,7 +83,7 @@
   --bg-gradient-calm: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
   --bg-gradient-hero: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 
-  /* Spacing System */
+  
   --spacing-xs: 0.25rem;
   --spacing-sm: 0.5rem;
   --spacing-md: 1rem;
@@ -94,7 +92,7 @@
   --spacing-2xl: 3rem;
   --spacing-3xl: 4rem;
 
-  /* Border Radius */
+  
   --radius-sm: 4px;
   --radius-md: 8px;
   --radius-lg: 12px;
@@ -102,7 +100,7 @@
   --radius-2xl: 24px;
   --radius-full: 9999px;
 
-  /* Shadows */
+  
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
@@ -114,13 +112,13 @@
   --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
   --shadow-glow: 0 0 20px rgba(102, 126, 234, 0.4);
 
-  /* Transitions */
+  
   --transition-fast: 0.15s ease;
   --transition-base: 0.3s ease;
   --transition-slow: 0.5s ease;
   --transition-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
-  /* Z-index Scale */
+  
   --z-dropdown: 1000;
   --z-sticky: 1020;
   --z-fixed: 1030;
@@ -130,12 +128,8 @@
   --z-tooltip: 1070;
 }
 
-/* ============================================
-   BASE STYLES
-   ============================================ */
-/* ============================================
-   BASE STYLES
-   ============================================ */
+
+
 
 * {
   margin: 0;
@@ -188,9 +182,7 @@ body {
   width: 100%;
 }
 
-/* ============================================
-   TYPOGRAPHY
-   ============================================ */
+
 
 h1,
 h2,
@@ -227,9 +219,7 @@ p {
   color: var(--text-secondary);
 }
 
-/* ============================================
-   BUTTONS
-   ============================================ */
+
 
 .btn {
   display: inline-flex;
@@ -350,9 +340,7 @@ p {
   font-size: 1.1rem;
 }
 
-/* ============================================
-   FORMS
-   ============================================ */
+
 
 .form-group {
   margin-bottom: var(--spacing-lg);
@@ -398,9 +386,7 @@ p {
   color: var(--gray-500);
 }
 
-/* ============================================
-   CARDS
-   ============================================ */
+
 
 .card {
   background: var(--bg-primary);
@@ -433,9 +419,7 @@ p {
   border-top: 1px solid var(--gray-200);
 }
 
-/* ============================================
-   ALERTS
-   ============================================ */
+
 
 .alert {
   padding: 16px 20px;
@@ -483,9 +467,7 @@ p {
   border-left: 4px solid var(--info);
 }
 
-/* ============================================
-   NAVBAR
-   ============================================ */
+
 
 .navbar {
   position: fixed;
@@ -577,9 +559,7 @@ p {
   transform: scaleX(1);
 }
 
-/* ============================================
-   CRISIS BANNER
-   ============================================ */
+
 
 .crisis-banner {
   background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
@@ -629,9 +609,7 @@ p {
   backdrop-filter: blur(5px);
 }
 
-/* ============================================
-   LANDING PAGE
-   ============================================ */
+
 
 .landing-page {
   padding-top: var(--spacing-xl);
@@ -858,9 +836,7 @@ p {
   line-height: 1.7;
 }
 
-/* ============================================
-   AUTH PAGES
-   ============================================ */
+
 
 .auth-page {
   display: flex;
@@ -931,9 +907,7 @@ p {
   text-decoration: underline;
 }
 
-/* ============================================
-   DASHBOARD
-   ============================================ */
+
 
 .dashboard-page {
   width: 100%;
@@ -1007,9 +981,7 @@ p {
   padding-left: var(--spacing-xl);
 }
 
-/* ============================================
-   MOOD COMPONENTS
-   ============================================ */
+
 
 .mood-page {
   width: 100%;
@@ -1209,9 +1181,7 @@ p {
   padding: var(--spacing-md);
 }
 
-/* ============================================
-   RESOURCES PAGE
-   ============================================ */
+
 
 .resources-page {
   width: 100%;
@@ -1365,9 +1335,7 @@ p {
   gap: var(--spacing-md);
 }
 
-/* ============================================
-   SUPPORT PAGE
-   ============================================ */
+
 
 .support-page {
   width: 100%;
@@ -1490,9 +1458,7 @@ p {
   gap: var(--spacing-sm);
 }
 
-/* ============================================
-   ADMIN DASHBOARD
-   ============================================ */
+
 
 .admin-dashboard {
   width: 100%;
@@ -1620,9 +1586,7 @@ p {
   justify-content: flex-end;
 }
 
-/* ============================================
-   UTILITIES
-   ============================================ */
+
 
 .text-center {
   text-align: center;
@@ -1679,9 +1643,7 @@ p {
   opacity: 0.5;
 }
 
-/* ============================================
-   RESPONSIVE DESIGN
-   ============================================ */
+
 
 @media (max-width: 1024px) {
   .nav-menu {
@@ -1840,9 +1802,7 @@ p {
   }
 }
 
-/* ============================================
-   PRINT STYLES
-   ============================================ */
+
 
 @media print {
   .navbar,
@@ -1863,11 +1823,9 @@ p {
   }
 }
 
-/* ============================================
-   DASHBOARD ANALYTICS & BADGES
-   ============================================ */
 
-/* Mood Statistics Cards */
+
+
 .mood-stats {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -1916,7 +1874,7 @@ p {
   font-weight: 500;
 }
 
-/* Dashboard Tabs */
+
 .dashboard-tabs {
   display: flex;
   gap: var(--spacing-md);
@@ -1955,7 +1913,7 @@ p {
   border-radius: var(--radius-md) var(--radius-md) 0 0;
 }
 
-/* Dashboard Grid Layouts */
+
 .dashboard-grid {
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -1974,7 +1932,7 @@ p {
   font-weight: 400;
 }
 
-/* Quick Actions Grid */
+
 .action-buttons-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
@@ -2014,7 +1972,7 @@ p {
   font-size: 0.95rem;
 }
 
-/* Mood Trend Chart */
+
 .mood-trend-chart {
   padding: var(--spacing-lg) 0;
 }
@@ -2048,7 +2006,7 @@ p {
   font-style: italic;
 }
 
-/* Mood Heatmap */
+
 .mood-heatmap {
   padding: var(--spacing-lg);
 }
@@ -2147,7 +2105,7 @@ p {
   border: 2px solid var(--gray-300);
 }
 
-/* Achievement Badges */
+
 .achievement-badges {
   padding: var(--spacing-md);
 }
@@ -2292,14 +2250,14 @@ p {
   box-shadow: var(--shadow-md);
 }
 
-/* Loading States */
+
 .loading-spinner {
   text-align: center;
   padding: var(--spacing-2xl);
   color: var(--text-tertiary);
 }
 
-/* Tab Content Sections */
+
 .overview-section,
 .analytics-section,
 .achievements-section,
@@ -2312,7 +2270,7 @@ p {
   margin: 0 auto;
 }
 
-/* Welcome Section Updates */
+
 .welcome-content {
   max-width: 800px;
   margin: 0 auto;
@@ -2324,7 +2282,7 @@ p {
   margin: 0;
 }
 
-/* Responsive Dashboard */
+
 @media (max-width: 1024px) {
   .dashboard-grid {
     grid-template-columns: 1fr;
@@ -2366,9 +2324,7 @@ p {
   }
 }
 
-/* ============================================
-   AI CHAT PAGE
-   ============================================ */
+
 
 .ai-chat-page {
   max-width: 1400px;
@@ -2643,7 +2599,7 @@ p {
   font-style: italic;
 }
 
-/* Responsive AI Chat */
+
 @media (max-width: 768px) {
   .ai-chat-page {
     padding: var(--spacing-md);
@@ -2690,9 +2646,7 @@ p {
   }
 }
 
-/* ============================================
-   PROFESSIONAL AI CHAT STYLES (NEW)
-   ============================================ */
+
 
 .page-container-full {
   min-height: calc(100vh - 80px);
@@ -2717,9 +2671,16 @@ p {
   right: 0;
   bottom: 0;
   z-index: 0;
-  background-image: 
-    radial-gradient(circle at 10% 20%, rgba(100, 181, 246, 0.1) 0%, transparent 20%),
-    radial-gradient(circle at 90% 80%, rgba(144, 202, 249, 0.1) 0%, transparent 20%);
+  background-image: radial-gradient(
+      circle at 10% 20%,
+      rgba(100, 181, 246, 0.1) 0%,
+      transparent 20%
+    ),
+    radial-gradient(
+      circle at 90% 80%,
+      rgba(144, 202, 249, 0.1) 0%,
+      transparent 20%
+    );
 }
 
 .ai-chat-wrapper {
@@ -2860,7 +2821,7 @@ p {
   text-align: right;
 }
 
-/* Typing Indicator */
+
 .typing-indicator {
   display: flex;
   gap: 4px;
@@ -2884,11 +2845,13 @@ p {
 }
 
 @keyframes bounce {
-  0%, 80%, 100% { 
-    transform: scale(0); 
-  } 
-  40% { 
-    transform: scale(1); 
+  0%,
+  80%,
+  100% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
   }
 }
 
@@ -2903,7 +2866,7 @@ p {
   }
 }
 
-/* Input Area */
+
 .message-input-form {
   padding: var(--spacing-lg);
   background: rgba(255, 255, 255, 0.9);
@@ -2976,7 +2939,7 @@ p {
   margin-top: 12px;
 }
 
-/* Responsive Design Overrides */
+
 @media (max-width: 768px) {
   .ai-chat-header {
     flex-direction: column;

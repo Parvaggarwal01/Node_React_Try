@@ -20,11 +20,11 @@ const seedData = async () => {
   try {
     await connectDB();
 
-    // Clear existing data
+    
     await User.deleteMany();
     await Resource.deleteMany();
 
-    // Create counselor user
+    
     const salt = await bcrypt.genSalt(10);
     const counselorPassword = await bcrypt.hash("counselor123", salt);
 
@@ -38,7 +38,7 @@ const seedData = async () => {
 
     console.log("Counselor user created:", counselorUser.email);
 
-    // Create sample student
+    
     const studentPassword = await bcrypt.hash("student123", salt);
 
     const studentUser = await User.create({
@@ -53,7 +53,7 @@ const seedData = async () => {
 
     console.log("Student user created:", studentUser.email);
 
-    // Create sample resources
+    
     const resources = [
       {
         title: "Managing Exam Stress",

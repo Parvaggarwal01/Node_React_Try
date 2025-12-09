@@ -57,10 +57,10 @@ const DashboardPage = () => {
         </div>
       </div>
 
-      {/* Statistics Overview */}
+      {}
       {!loading && allMoods.length > 0 && <MoodStats entries={allMoods} />}
 
-      {/* Tab Navigation */}
+      {}
       <div className="dashboard-tabs">
         <button
           className={`tab-btn ${activeTab === "overview" ? "active" : ""}`}
@@ -88,7 +88,7 @@ const DashboardPage = () => {
         </button>
       </div>
 
-      {/* Tab Content */}
+      {}
       <div className="dashboard-tab-content">
         {activeTab === "overview" && (
           <div className="overview-section">

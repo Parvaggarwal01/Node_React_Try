@@ -9,7 +9,7 @@ const axiosClient = axios.create({
   },
 });
 
-// Add a request interceptor to include auth token
+
 axiosClient.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem("token");
@@ -23,14 +23,14 @@ axiosClient.interceptors.request.use(
   }
 );
 
-// Add a response interceptor to handle token expiration
+
 axiosClient.interceptors.response.use(
   (response) => {
     return response;
   },
   (error) => {
     if (error.response?.status === 401) {
-      // Token expired or invalid, remove it
+      
       localStorage.removeItem("token");
       window.location.href = "/login";
     }

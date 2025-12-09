@@ -9,7 +9,7 @@ const MoodList = ({ entries, showAll = false }) => {
     );
   }
 
-  // If showAll is false, only show the first 5 entries
+  
   const displayEntries = showAll ? entries : entries.slice(0, 5);
 
   const getMoodData = (mood) => {

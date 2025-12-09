@@ -6,22 +6,22 @@ import { protect } from "../middleware/authMiddleware.js";
 
 const router = express.Router();
 
-// Student Register
+
 router.post("/register", async (req, res) => {
   try {
     const { name, email, password, institution, program, year } = req.body;
 
-    // Check if user already exists
+    
     const existingUser = await User.findOne({ email });
     if (existingUser) {
       return res.status(400).json({ message: "User already exists" });
     }
 
-    // Hash password
+    
     const salt = await bcrypt.genSalt(10);
     const passwordHash = await bcrypt.hash(password, salt);
 
-    // Create user
+    
     const user = await User.create({
       name,
       email,
@@ -32,7 +32,7 @@ router.post("/register", async (req, res) => {
       role: "student",
     });
 
-    // Generate JWT
+    
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
       expiresIn: "30d",
     });
@@ -52,24 +52,24 @@ router.post("/register", async (req, res) => {
   }
 });
 
-// Login (both student and admin/counselor)
+
 router.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    // Find user
+    
     const user = await User.findOne({ email });
     if (!user) {
       return res.status(401).json({ message: "Invalid credentials" });
     }
 
-    // Check password
+    
     const isMatch = await bcrypt.compare(password, user.passwordHash);
     if (!isMatch) {
       return res.status(401).json({ message: "Invalid credentials" });
     }
 
-    // Generate JWT
+    
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
       expiresIn: "30d",
     });
@@ -89,7 +89,7 @@ router.post("/login", async (req, res) => {
   }
 });
 
-// Get user profile
+
 router.get("/me", protect, async (req, res) => {
   try {
     const user = await User.findById(req.user._id).select("-passwordHash");

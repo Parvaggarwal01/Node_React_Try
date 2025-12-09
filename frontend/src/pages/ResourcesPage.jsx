@@ -17,7 +17,7 @@ const ResourcesPage = () => {
         setResources(response.data);
         setFilteredResources(response.data);
         
-        // Extract unique categories
+        
         const uniqueCategories = [...new Set(response.data.map(r => r.category))];
         setCategories(uniqueCategories);
       } catch (err) {
@@ -33,7 +33,7 @@ const ResourcesPage = () => {
   useEffect(() => {
     let result = resources;
     
-    // Filter by search term
+    
     if (searchTerm) {
       result = result.filter(resource => 
         resource.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -42,7 +42,7 @@ const ResourcesPage = () => {
       );
     }
     
-    // Filter by category
+    
     if (selectedCategory) {
       result = result.filter(resource => resource.category === selectedCategory);
     }

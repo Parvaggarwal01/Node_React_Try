@@ -17,7 +17,7 @@ const MoodStats = ({ entries }) => {
       (a, b) => new Date(a.date) - new Date(b.date)
     );
 
-    // Calculate current streak
+    
     const calculateStreak = () => {
       let streak = 0;
       const today = new Date();
@@ -38,11 +38,11 @@ const MoodStats = ({ entries }) => {
       return streak;
     };
 
-    // Calculate average mood
+    
     const avgMood =
       entries.reduce((sum, e) => sum + e.mood, 0) / entries.length;
 
-    // Calculate mood trend (comparing last 7 days with previous 7 days)
+    
     const last7Days = entries.slice(-7);
     const previous7Days = entries.slice(-14, -7);
 
@@ -58,7 +58,7 @@ const MoodStats = ({ entries }) => {
       else if (avgLast7 < avgPrev7 - 0.3) moodTrend = "declining";
     }
 
-    // Find best mood
+    
     const bestMood = Math.max(...entries.map((e) => e.mood));
 
     return {

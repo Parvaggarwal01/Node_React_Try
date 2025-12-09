@@ -4,7 +4,7 @@ import { protect } from "../middleware/authMiddleware.js";
 
 const router = express.Router();
 
-// POST /api/mood
+
 router.post("/", protect, async (req, res) => {
   try {
     const { mood, note, date } = req.body;
@@ -20,12 +20,12 @@ router.post("/", protect, async (req, res) => {
   }
 });
 
-// GET /api/mood
+
 router.get("/", protect, async (req, res) => {
   try {
     const entries = await MoodEntry.find({ user: req.user._id })
       .sort({ date: -1 })
-      .limit(14); // Last 14 days
+      .limit(14); 
     res.json(entries);
   } catch (err) {
     res.status(500).json({ message: err.message });

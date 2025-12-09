@@ -26,7 +26,7 @@ const SupportPage = () => {
   }, [user]);
 
   const handleRequestSubmit = () => {
-    fetchRequests(); // Refresh the list
+    fetchRequests(); 
   };
 
   if (!user) {

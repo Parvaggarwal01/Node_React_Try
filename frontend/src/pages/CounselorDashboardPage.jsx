@@ -50,7 +50,7 @@ const CounselorDashboardPage = () => {
         counselorNote,
       });
 
-      // Update the request in state
+      
       setRequests(
         requests.map((req) => (req._id === requestId ? response.data : req))
       );
@@ -60,7 +60,7 @@ const CounselorDashboardPage = () => {
   };
 
   const handleResourceSubmit = () => {
-    fetchResources(); // Refresh resources list
+    fetchResources(); 
   };
 
   const handleResourceDelete = async (resourceId) => {
